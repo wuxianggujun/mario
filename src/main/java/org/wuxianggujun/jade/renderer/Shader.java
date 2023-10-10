@@ -1,8 +1,11 @@
 package org.wuxianggujun.jade.renderer;
 
+import org.joml.Matrix4f;
+import org.lwjgl.BufferUtils;
+
 import java.io.IOException;
+import java.nio.FloatBuffer;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static org.lwjgl.opengl.GL11.GL_FALSE;
@@ -118,6 +121,14 @@ public class Shader {
 
     public void detach() {
         glUseProgram(0);
+    }
+
+
+    public void uploadMatrix4f(String name, Matrix4f matrix) {
+        int varLocation = glGetUniformLocation(shaderProgramID, name);
+        FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
+        matrix.get(matrixBuffer);
+        glUniformMatrix4fv(varLocation, false, matrixBuffer);
     }
 
 
