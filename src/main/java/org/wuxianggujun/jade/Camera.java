@@ -4,6 +4,9 @@ import org.joml.Matrix4f;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 
+/**
+ * Youtube主关于相机的讲解文章 https://ambrosiogabe.github.io/games/2020/04/16/on-cameras-in-opengl/
+ */
 public class Camera {
     private Matrix4f projectionMatrix, viewMatrix;
     public Vector2f position;
