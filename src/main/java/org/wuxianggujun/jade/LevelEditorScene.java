@@ -3,6 +3,7 @@ package org.wuxianggujun.jade;
 import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 import org.wuxianggujun.jade.renderer.Shader;
+import org.wuxianggujun.jade.util.Time;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -105,6 +106,8 @@ public class LevelEditorScene extends Scene {
         defaultShader.use();
         defaultShader.uploadMatrix4f("uProjection", camera.getProjectionMatrix());
         defaultShader.uploadMatrix4f("uView", camera.getViewMatrix());
+        defaultShader.uploadFloat("uTime", Time.getTime());
+
 
         // Bind the VAO we're using
         glBindVertexArray(vaoID);

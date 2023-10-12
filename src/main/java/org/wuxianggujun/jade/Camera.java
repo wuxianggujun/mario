@@ -8,7 +8,10 @@ import org.joml.Vector3f;
  * Youtube主关于相机的讲解文章 https://ambrosiogabe.github.io/games/2020/04/16/on-cameras-in-opengl/
  */
 public class Camera {
-    private Matrix4f projectionMatrix, viewMatrix;
+    private Matrix4f projectionMatrix;
+
+    // 视图矩阵实际上只是摄像机在世界空间中的位置，以及它指向的方向。
+    private Matrix4f viewMatrix;
     public Vector2f position;
 
     public Camera(Vector2f position) {
